@@ -1,6 +1,10 @@
 **B. 内积谓词加密**
 
-内积谓词加密（Inner Product Predicate Encryption，PPE）方案包含一个秘密密钥为 8k。对于输入的字符 $I\in\Sigma$，输出密文 $ctr$。加密过程 $Encrypt(sk,I)$：输入秘密密钥 $sk$ 和明文 $I$，输出密文 $ctr$。生成搜索令牌过程 $GenToken(sk,q)$：输入秘密密钥 $sk$ 和谓词 $q\in Q$，输出搜索令牌 $st$。查询过程 $Query(st_q,ctr)$：输入谓词 $q$ 的搜索令牌 $st$ 和明文 $I$ 的密文 $ct$，输出 $q(x)\in\{0,1\}$。
+内积谓词加密（Inner Product Predicate Encryption，PPE）方案包含一个秘密密钥为 8k。
+对于输入的字符 $I\in\Sigma$，输出密文 $ctr$。
+加密过程 $Encrypt(sk,I)$：输入秘密密钥 $sk$ 和明文 $I$，输出密文 $ctr$。
+生成搜索令牌过程 $GenToken(sk,q)$：输入秘密密钥 $sk$ 和谓词 $q\in Q$，输出搜索令牌 $st$。
+查询过程 $Query(st_q,ctr)$：输入谓词 $q$ 的搜索令牌 $st$ 和明文 $I$ 的密文 $ct$，输出 $q(x)\in\{0,1\}$。
 
 正确性：为了保证正确性，内积谓词加密需要满足以下条件。对于所有的 $A,I\in\Sigma$ 和 $q\in Q$，令 $Encrypt(8k,I)$，$k\leftarrow Setup(12)$，$st\leftarrow GenToken(sk,q)$ 和 $c\leftarrow -$。如果 $<I,q>=0$，那么 $Query(st_q,ctr)=1$。如果 $<I,q>\neq0$，那么 $Pr[Query(st_v,ctr))\geq1-\delta(\lambda)$，其中 $\delta$ 是一个可忽略函数。
 
